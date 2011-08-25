@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  step_id: 1
+  ingredient_id: 1
+  position: 1
+
+two:
+  step_id: 1
+  ingredient_id: 1
+  position: 1
