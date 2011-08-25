@@ -6,7 +6,7 @@ gem 'rails', '3.1.0.rc6'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'pg'
+
 gem 'json'
 #gem 'therubyracer-heroku', '0.8.1.pre3'
 
@@ -16,6 +16,10 @@ group :assets do
   gem 'sass-rails', "  ~> 3.1.0.rc"
   gem 'coffee-rails', "~> 3.1.0.rc"
   gem 'uglifier'
+end
+
+group :production do
+	gem 'pg'
 end
 
 gem 'jquery-rails'
