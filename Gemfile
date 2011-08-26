@@ -1,14 +1,13 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.1.0.rc6'
+gem 'rails', '~> 3.1.0.rc6'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-
-
+gem 'eventmachine', '1.0.0.beta.3'
+gem 'thin'
 
 gem 'json'
-#gem 'therubyracer-heroku', '0.8.1.pre3'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,7 +21,9 @@ group :development, :test do
 	gem 'sqlite3'
 end
 
-gem 'pg'
+group :production do
+	gem 'pg'
+end
 
 gem 'jquery-rails'
 
