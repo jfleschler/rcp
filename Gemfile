@@ -4,8 +4,6 @@ gem 'rails', '~> 3.1.0.rc6'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
-gem 'eventmachine', '1.0.0.beta.3'
-gem 'thin'
 
 gem 'json'
 
