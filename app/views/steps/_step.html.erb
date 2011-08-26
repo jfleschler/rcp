@@ -1,0 +1,21 @@
+<tr>
+	<td>
+		<ul class="ingredient">
+			<% step.ingredients.each do |ingredient| %>
+				<%= render ingredient %>
+				<% unless ingredient == step.ingredients.last %>
+					<li>+</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</td>
+	<td>
+		<div class="image">
+			<%= image_tag 'stepCircle.png', :size => 20 %>
+			<h2><%= step.step_num %></h2>
+		</div>
+	</td>
+</tr>
+<tr class="step_note">
+	<td><%= step.note %></td>
+</tr>

@@ -17,10 +17,11 @@ end
 
 group :development, :test do
 	gem 'sqlite3'
+	#gem 'therubyracer'
 end
 
 group :production do
-	gem 'therubyracer-heroku'
+	#gem 'therubyracer-heroku'
 	gem 'pg'
 end
 

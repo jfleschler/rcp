@@ -1,3 +1,26 @@
 // Place all the styles related to the Steps controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.steps {
+	div.image {
+	   position: relative;
+	}
+
+	h2 {
+		font-size: 1.5em;
+		color: #fff;
+		position: absolute;
+		top: -0.1em;
+		left: -0.47em;
+		width: 100%;
+	}
+	
+	tr.step_note {
+		td {
+			background-color: #fff;
+			text-align: left;
+			padding: 0;
+		}
+	}
+}
