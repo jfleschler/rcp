@@ -7,3 +7,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+$(document).ready(function(){
+	$('img[title]').qtip({
+		position: {
+	      my: 'top middle', 
+	      at: 'bottom middle'
+	   },
+	   style: { 
+	      tip: true,
+	      classes: 'ui-tooltip-dark ui-tooltip-rounded'
+	   }
+	});
+});
