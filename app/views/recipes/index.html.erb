@@ -1,7 +1,11 @@
-<div class="recipe">my recipes</div>
-<hr />
-<ul>
+
+	<h3>my recipes</h3>
+	<hr />
+
 <% @recipes.each do |recipe| %>
-	<li><%= link_to recipe.name, recipe %></li>
+	<div class="row">
+	<div class="span10 columns offset1">
+		<%= link_to recipe.name, recipe %>
+	</div>
+	</div><!-- /row --> 
 <% end %>
-</ul>

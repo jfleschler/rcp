@@ -1,7 +1,5 @@
 <div>
-	<div class="recipe"><%= @recipe.name %></div>
-	<div class="divider"><hr /></div>
-	<table class="steps">
+	<h1><%= @recipe.name %></h1>
+	<hr />
 		<%= render @recipe.steps %>
-	</table>
 </div>
