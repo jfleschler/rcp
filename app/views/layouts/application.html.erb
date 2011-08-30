@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>rcp</title>
-  <link rel="stylesheet" href="http://twitter.github.com/bootstrap/assets/css/bootstrap-1.1.1.min.css">
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -24,5 +23,6 @@
 		<%= yield %>
 	</div>
 </div> 
+<%= debug(params) if Rails.env.development? %>
 </body>
 </html>

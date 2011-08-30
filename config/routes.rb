@@ -1,9 +1,10 @@
 Rcp::Application.routes.draw do
   
-  get "steps/show"
-
   resources :ingredients
   resources :recipes
+  resources :steps
+  resources :associations
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

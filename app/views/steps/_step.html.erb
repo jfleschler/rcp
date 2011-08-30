@@ -4,11 +4,11 @@
 			<h2><%= step.number_string %></h2>
 		</div>
 	</div>
-	<% step.ingredients.each do |ingredient| %>
+	<% step.associations.each do |association| %>
 		<div class="span1 column padright">
 		<nobr>
-		<%= render ingredient %>
-		<% unless ingredient == step.ingredients.last %>
+		<%= render Ingredient.find(association.ingredient_id) %>
+		<% unless association == step.associations.last %>
 			<div class="combine" >+</div>
 		<% end %>
 		</nobr>

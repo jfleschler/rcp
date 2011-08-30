@@ -26,6 +26,10 @@ body {
 	padding-top: 40px;
 }
 
+label {
+	font: 18px/26px 'ComfortaaRegular', Arial, sans-serif;letter-spacing: 0;
+}
+
 h1 {
 	font: 60px/68px 'ComfortaaRegular', Arial, sans-serif;letter-spacing: 0;
 	margin-bottom: -10px;
@@ -39,6 +43,14 @@ h3.bold {
 	font: 20px/28px 'ComfortaaRegular', Arial, sans-serif;letter-spacing: 0;
 }
 
+.ingredient_toolbox {
+	position: absolute;
+	left: 0;
+ 	bottom: 0;
+ 	background-color: #eee;
+ 	width: 100%;
+ 	height: 300px;
+}
 
 @font-face {
     font-family: 'ComfortaaThin';
