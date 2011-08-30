@@ -1,0 +1,36 @@
+<% @recipe.steps.each do |step| %>
+	<div class="row">
+		<div class="span1 column offset1 stepnum">
+			<div>
+				<h2><%= step.number_string %></h2>
+			</div>
+		</div>
+		<% step.associations.each do |association| %>
+			<div class="span1 column padright">
+			<nobr>
+			<%= render Ingredient.find(association.ingredient_id) %>
+			<% unless association == step.associations.last %>
+				<div class="combine" >+</div>
+			<% end %>
+			</nobr>
+			</div>
+		<% end %>
+		<div class="span1 column padright">
+			<%= image_tag 'newIngredient.png', :class => 'newIngredient', :id => step.id %>
+		</div>
+	</div><!-- /row --> 
+	<div class="row">
+		<div class="span10 columns offset3 note"><%= step.note %></div>
+	</div><!-- /row --> 
+<% end %>
+
+
+<script>
+	var toolbox = $('div.ingredient_toolbox');
+	$('img.newIngredient').click(
+		function() {
+			$('#associations_activeStep').val($(this).attr('id'));
+			toolbox.slideToggle("slow");
+		}
+	);
+</script>

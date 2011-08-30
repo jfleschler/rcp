@@ -1,0 +1,26 @@
+<div>
+	<h1><%= @recipe.name %> <small><%= link_to "(done editing)", @recipe %></small></h1>
+	<hr />
+		<div class="span12 columns">
+			<h3>steps</h3>
+				<div id="allsteps">
+				<%= render 'step_edit' %>
+				</div>
+				<div class="row">
+				<div class="span1 column offset1">
+					<%= button_to "new step", new_step_path(:recipe => @recipe.id), :class => 'btn primary', :method => 'get', :remote => true %>
+				</div>	
+				</div>
+		</div>
+	</div>
+
+<%= form_for :associations, :url => new_association_path, :method => 'get', :remote => true do |f| %>
+     <%= f.hidden_field :recipe, :value => @recipe.id %>
+     <%= f.hidden_field :activeStep %>
+     <%= f.hidden_field :selectedIngredient %>
+	<div class="ingredient_toolbox">
+		<% Ingredient.all.each do |i| %>
+			<%= image_submit_tag i.image, :title => i.name, :class => "ingredient", :id => i.id, :method => 'get' %>
+		<% end %>
+	</div>
+<% end %>
