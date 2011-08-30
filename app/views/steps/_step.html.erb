@@ -7,7 +7,7 @@
 	<% step.associations.each do |association| %>
 		<div class="span1 column padright">
 		<nobr>
-		<%= render Ingredient.find(association.ingredient_id) %>
+		<%= render association %>
 		<% unless association == step.associations.last %>
 			<div class="combine" >+</div>
 		<% end %>
@@ -15,6 +15,6 @@
 		</div>
 	<% end %>
 </div><!-- /row --> 
-<div class="row">
+<!--<div class="row">
 	<div class="span10 columns offset3 note"><%= step.note %></div>
-</div><!-- /row --> 
+</div> -->

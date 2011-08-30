@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110825143308) do
+ActiveRecord::Schema.define(:version => 20110830210100) do
 
   create_table "associations", :force => true do |t|
     t.integer  "step_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110825143308) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "amount"
   end
 
   create_table "ingredients", :force => true do |t|
