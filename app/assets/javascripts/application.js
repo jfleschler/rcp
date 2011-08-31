@@ -118,16 +118,16 @@ $(document).ready(function(){
      
     //if mask is clicked
     $('#mask').click(function () {
-        $(this).hide();
+	    $(this).hide();
         $('.modal').hide();
     }); 
 
     //if ok is clicked
     $('#submitIngredient').click(function () {
-        $('#mask, .modal').hide();
+	    $('#mask, .modal').hide();
     });
 
     $('#nevermind').click(function () {
-        $('#mask, .modal').hide();
+	    $('#mask, .modal').hide();
     });
 });

@@ -18,8 +18,8 @@
 .rem_association {
     position: absolute;
     display: none;
-    left: 40px;
-    top: -5px;
+    left: 36px;
+    top: -3px;
 }
 
 .stepnum {
@@ -50,6 +50,14 @@ div.association {
     display: block;
     text-align: center;
     margin-top: -8px;
+}
+
+.newIngredient {
+    opacity:0.6;
+
+    &:hover {
+        opacity:1;
+    }
 }
 
 .note {
