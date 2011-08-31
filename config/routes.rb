@@ -6,6 +6,8 @@ Rcp::Application.routes.draw do
   resources :associations
 
   root :to => 'recipes#index'
+
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
