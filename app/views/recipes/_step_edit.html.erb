@@ -1,6 +1,9 @@
 <% @recipe.steps.each do |step| %>
 	<div class="row">
-		<div class="span1 column offset1 stepnum">
+		<div class="span1 column center">
+			<%= link_to "delete", step_path(step), :confirm => "Are you sure?", :method => :delete %>
+		</div>
+		<div class="span1 column stepnum">
 			<div>
 				<h2><%= step.number_string %></h2>
 			</div>
@@ -9,6 +12,9 @@
 			<div class="span1 column padright">
 			<nobr>
 			<%= render association %>
+			<div class="rem_association">
+				<%= link_to "x", association_path(association), :confirm => "Are you sure?", :method => :delete %>
+			</div>
 			<% unless association == step.associations.last %>
 				<div class="combine" >+</div>
 			<% end %>
@@ -33,4 +39,15 @@
 			toolbox.slideToggle("slow");
 		}
 	);
+
+	$('img.ingredient').qtip({
+		position: {
+	      my: 'top middle', 
+	      at: 'bottom middle'
+	   },
+	   style: { 
+	      tip: true,
+	      classes: 'ui-tooltip-dark ui-tooltip-rounded'
+	   }
+	});
 </script>

@@ -13,4 +13,16 @@ class StepsController < ApplicationController
 	    format.js
     end
   end
+
+  def destroy
+
+    step = Step.find(params[:id])
+    @recipe = step.recipe
+    step.destroy()
+
+    respond_to do |format|
+      format.html { redirect_to edit_recipe_path(@recipe) }
+      format.js
+    end
+  end
 end

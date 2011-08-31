@@ -5,8 +5,21 @@
 }
 
 .padright {
+    position: relative;
 	padding-right: 0;
     height: 50px;
+}
+
+.center {
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+.rem_association {
+    position: absolute;
+    display: none;
+    left: 40px;
+    top: -5px;
 }
 
 .stepnum {
@@ -18,10 +31,14 @@
 	}
 }
 
-.association {
+div.association {
     display: inline;
     float: left;
     padding: 0;
+}
+
+.padright:hover .rem_association{
+    display: block;
 }
 
 .ingredient_image {

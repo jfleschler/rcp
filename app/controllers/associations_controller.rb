@@ -12,4 +12,16 @@ class AssociationsController < ApplicationController
     end
   end
 
+  def destroy
+  	association = Association.find(params[:id])
+  	step = Step.find(association.step_id)
+  	@recipe = Recipe.find(step.recipe_id)
+
+  	association.destroy()
+
+  	respond_to do |format|
+	    format.html { redirect_to edit_recipe_path(@recipe) }
+	    format.js
+    end
+  end
 end

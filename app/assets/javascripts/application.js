@@ -74,6 +74,9 @@ $(document).ready(function(){
     $('input[type="image"].ingredient').click(function(e) {
         //Cancel the link behavior
         e.preventDefault();
+
+        //Clear previous values
+        $('#associations_amount').val('');
         //Store the selected ingerdient
         $('#associations_selectedIngredient').val($(this).attr('id'));
         $('#selectedImage').attr('src', $(this).attr('src'));
@@ -104,7 +107,6 @@ $(document).ready(function(){
      
         //transition effect
         $(modal).fadeIn(2000); 
-     
     });
      
     //if close button is clicked

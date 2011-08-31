@@ -3,6 +3,8 @@ class Step < ActiveRecord::Base
 	has_many :associations, :dependent => :destroy
 	has_many :ingredients, :through => :associations
 
+	before_destroy :renumber_remaining
+
 	def number_string
 		case step_num
 		when 1
@@ -45,5 +47,17 @@ class Step < ActiveRecord::Base
 			";"
 		end
 	end
+
+	private
+		
+		def renumber_remaining
+			recipe = Recipe.find(recipe_id)
+			recipe.steps.each do |s|
+				if(s.step_num > step_num)
+					s.step_num = s.step_num - 1
+					s.save
+				end
+			end
+		end
 
 end
