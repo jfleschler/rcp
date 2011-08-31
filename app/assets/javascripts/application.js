@@ -8,6 +8,10 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function(){
+
+	var mouse_is_inside = false;
+	var toolbox_is_open = false;
+
 	$('input[type="image"]').qtip({
 		position: {
 	      my: 'top middle', 
@@ -33,7 +37,7 @@ $(document).ready(function(){
 	var toolbox = $('div.ingredient_toolbox');
 	$('img.newIngredient').click(
 		function() {
-			$('#activeStep').value = "1";
+			$('#associations_activeStep').val($(this).attr('id'));
 			toolbox.slideToggle("slow");
 		}
 	);
@@ -45,4 +49,24 @@ $(document).ready(function(){
 			toolbox.slideToggle("fast");
 		}
 	);
+
+	
+	$('.ingredient_toolbox').hover(function(){ 
+        mouse_is_inside=true; 
+    }, function(){ 
+        mouse_is_inside=false; 
+    });
+
+    $("body").mouseup(function(){ 
+    	if(toolbox.css("display") != "none")
+    		toolbox_is_open = true;
+    	else
+    		toolbox_is_open = false;
+
+		if(toolbox_is_open) {
+        	if(!mouse_is_inside) {
+       		 	toolbox.slideToggle("fast");
+        	}
+    	}
+    });
 });
