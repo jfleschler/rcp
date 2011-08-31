@@ -12,9 +12,19 @@
 			<div class="span1 column padright">
 			<nobr>
 			<%= render association %>
-			<div class="rem_association">
-				<%= link_to (image_tag 'redx.png'), association_path(association), :confirm => "Are you sure?", :method => :delete, :remote => true %>
-			</div>
+					<div class="rem_association">
+						<%= link_to (image_tag 'redx.png'), association_path(association), :confirm => "Are you sure?", :method => :delete, :remote => true %>
+					</div>
+					<% unless association == step.associations.first %>
+					<div class="arrow_left">
+						<%= link_to (image_tag 'arrow_left.png'), url_for(:controller=>'associations', :action=>'update', :id => association, :move => "left"), :method => 'put', :remote => true %>
+					</div>
+					<% end %>
+					<% unless association == step.associations.last %>
+					<div class="arrow_right">
+						<%= link_to (image_tag 'arrow_right.png'), url_for(:controller=>'associations', :action=>'update', :id => association, :move => "right"), :method => 'put', :remote => true %>
+					</div>
+					<% end %>
 			<% unless association == step.associations.last %>
 				<div class="combine" >+</div>
 			<% end %>

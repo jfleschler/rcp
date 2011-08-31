@@ -21,6 +21,23 @@
     left: 36px;
     top: -3px;
 }
+.arrow_left {
+    position: absolute;
+    display: none;
+    left: -6px;
+    top: 35px;
+}
+.arrow_right {
+    position: absolute;
+    display: none;
+    left: 30px;
+    top: 35px;
+}
+
+.stepIngredient {
+    display: inline;
+    font: 34px/42px 'CombiNumeralsLtdRegular', Arial, sans-serif;letter-spacing: 0;
+}
 
 .stepnum {
 	vertical-align: middle;
@@ -38,6 +55,12 @@ div.association {
 }
 
 .padright:hover .rem_association{
+    display: block;
+}
+.padright:hover .arrow_left{
+    display: block;
+}
+.padright:hover .arrow_right{
     display: block;
 }
 
