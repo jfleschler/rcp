@@ -27,7 +27,7 @@
           <div class="modal-body"> 
           	<%= image_tag 'placeholder.png', :id => "selectedImage", :class => "ingredient" %>
             <%= f.text_field :amount, :class => "mini" %>
-            <%= f.select :amount_unit, options_for_select(['c.','tsp.','tbl.','oz.']) %>
+            <%= f.select :amount_unit, options_for_select(['','c.','tsp.','tbl.','oz.']) %>
           </div> 
           <div class="modal-footer"> 
           	<%= f.submit "ok", :class => "btn primary", :id => "submitIngredient" %>
