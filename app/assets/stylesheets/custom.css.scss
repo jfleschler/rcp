@@ -1,11 +1,12 @@
 .combine {
 	font-size: 2.5em;
-	display: inline;
-	vertical-align: super;
+	display: block;
+	margin-top: 10px;
 }
 
 .padright {
-	padding-right: 5px;
+	padding-right: 0;
+    height: 50px;
 }
 
 .stepnum {
@@ -15,6 +16,23 @@
 	h2 {
 		font: 34px/42px 'CombiNumeralsLtdRegular', Arial, sans-serif;letter-spacing: 0;
 	}
+}
+
+.association {
+    display: inline;
+    float: left;
+    padding: 0;
+}
+
+.ingredient_image {
+    display: block;
+}
+
+.ingredient_amount {
+    font-size: 0.8em;
+    display: block;
+    text-align: center;
+    margin-top: -8px;
 }
 
 .note {
@@ -50,6 +68,38 @@ h3.bold {
  	background-color: #eee;
  	width: 100%;
  	height: 300px;
+}
+
+#mask {
+  position:absolute;
+  z-index:9000;
+  background-color:#000;
+  display:none;
+  left: 0;
+  top: 0;
+}
+
+.modal {
+  width: 300px;
+  position:absolute;
+  display:none;
+  z-index:9999;
+}
+
+#associations_amount_unit {
+    width: 70px;
+    vertical-align: middle;
+}
+
+.modal-body {
+    img {
+        vertical-align: middle;
+        padding-right: 5px;
+    }
+
+    input {
+        vertical-align: middle;
+    }
 }
 
 @font-face {

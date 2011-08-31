@@ -13,11 +13,29 @@
 				</div>
 		</div>
 	</div>
-
+<div id="mask"></div>
 <%= form_for :associations, :url => new_association_path, :method => 'get', :remote => true do |f| %>
      <%= f.hidden_field :recipe, :value => @recipe.id %>
      <%= f.hidden_field :activeStep %>
      <%= f.hidden_field :selectedIngredient %>
+
+		<div class="modal" > 
+          <div class="modal-header"> 
+            <h3>how much?</h3> <div id="ingredient_name"></div>
+            <a href="#" class="close">&times;</a> 
+          </div> 
+          <div class="modal-body"> 
+          	<%= image_tag nil, :id => "selectedImage", :class => "ingredient" %>
+            <%= f.text_field :amount, :class => "mini" %>
+            <%= f.select :amount_unit, options_for_select(['c.','tsp.','tbl.','oz.']) %>
+          </div> 
+          <div class="modal-footer"> 
+          	<%= f.submit "ok", :class => "btn primary", :id => "submitIngredient" %>
+            <a href="#" class="btn secondary" id="nevermind" >nevermind</a> 
+          </div> 
+        </div> 
+		
+
 	<div class="ingredient_toolbox">
 		<% Ingredient.all.each do |i| %>
 			<%= image_submit_tag i.image, :title => i.name, :class => "ingredient", :id => i.id, :method => 'get' %>

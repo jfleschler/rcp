@@ -1,1 +1,5 @@
-<%= image_tag association.ingredient.image, :title => association.ingredient.name, :class => "ingredient" %>
+
+<div class="association">
+<span class="ingredient_image"><%= image_tag association.ingredient.image, :title => association.ingredient.name, :class => "ingredient" %></span>
+<span class="ingredient_amount"><%= association.amount %></span>
+</div>

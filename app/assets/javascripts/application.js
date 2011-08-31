@@ -69,4 +69,63 @@ $(document).ready(function(){
         	}
     	}
     });
+
+
+    $('input[type="image"].ingredient').click(function(e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        //Store the selected ingerdient
+        $('#associations_selectedIngredient').val($(this).attr('id'));
+        $('#selectedImage').attr('src', $(this).attr('src'));
+        //toolbox.slideToggle("fast");
+
+        $('#ingredient_name').html($(this).attr('title'));
+        var id = $(this).attr('id');
+     	var modal = $('div.modal');
+
+        //Get the screen height and width
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+     
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+         
+        //transition effect     
+        $('#mask').fadeIn(1000);    
+        $('#mask').fadeTo("slow",0.8);  
+     
+        //Get the window height and width
+        var winH = $(document).height();
+        var winW = $(window).width();
+
+        //Set the popup window to center
+        $(modal).css('top',  (winH/2) + $(modal).height());
+        $(modal).css('left', ((winW/2)+150));
+     
+        //transition effect
+        $(modal).fadeIn(2000); 
+     
+    });
+     
+    //if close button is clicked
+    $('.modal .close').click(function (e) {
+        //Cancel the link behavior
+        e.preventDefault();
+        $('#mask, .modal').hide();
+    });     
+     
+    //if mask is clicked
+    $('#mask').click(function () {
+        $(this).hide();
+        $('.modal').hide();
+    }); 
+
+    //if ok is clicked
+    $('#submitIngredient').click(function () {
+        $('#mask, .modal').hide();
+    });
+
+    $('#nevermind').click(function () {
+        $('#mask, .modal').hide();
+    });
 });
