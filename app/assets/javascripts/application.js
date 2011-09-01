@@ -94,8 +94,8 @@ $(document).ready(function(){
         $('#mask').css({'width':maskWidth,'height':maskHeight});
          
         //transition effect     
-        $('#mask').fadeIn(1000);    
-        $('#mask').fadeTo("slow",0.8);  
+        $('#mask').fadeIn(500);    
+        //$('#mask').fadeTo("fast",0.8);  
      
         //Get the window height and width
         var winH = $(document).height();
@@ -106,7 +106,7 @@ $(document).ready(function(){
         $(modal).css('left', ((winW/2)+150));
      
         //transition effect
-        $(modal).fadeIn(2000); 
+        $(modal).fadeIn(0); 
     });
      
     //if close button is clicked
