@@ -1,0 +1,13 @@
+<div class="rem_association">
+	<%= delete_association_tag @recipe, step, association %>
+</div>
+<% unless association == step.associations.first %>
+	<div class="arrow_left">
+		<%= arrow_left_tag @recipe, step, association %>
+	</div>
+<% end %>
+<% unless association == step.associations.last %>
+	<div class="arrow_right">
+		<%= arrow_right_tag @recipe, step, association %>
+	</div>
+<% end %>

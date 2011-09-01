@@ -1,9 +1,12 @@
 Rcp::Application.routes.draw do
   
   resources :ingredients
-  resources :recipes
-  resources :steps
-  resources :associations
+  resources :associations, :only => [:new, :update]
+  resources :recipes do
+    resources :steps do
+      resources :associations, :except => [:new, :update]
+    end
+  end
 
   root :to => 'recipes#index'
 

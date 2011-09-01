@@ -4,7 +4,7 @@ class StepsController < ApplicationController
   end
 
   def new 
-  	@recipe = Recipe.find(params[:recipe])
+  	@recipe = Recipe.find(params[:recipe_id])
   	nextNum = @recipe.steps.count + 1
   	@recipe.steps.create({:step_num => nextNum})
 

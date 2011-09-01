@@ -1,7 +1,7 @@
 <% @recipe.steps.each do |step| %>
 	<div class="row">
 		<div class="span1 column center">
-			<%= link_to "delete", step_path(step), :confirm => "Are you sure?", :method => :delete, :remote => true %>
+			<%= delete_step_tag @recipe, step %>
 		</div>
 		<div class="span1 column stepnum">
 			<div>
@@ -9,56 +9,22 @@
 			</div>
 		</div>
 		<% step.associations.each do |association| %>
-			<div class="span1 column padright">
-			<nobr>
-			<%= render association %>
-					<div class="rem_association">
-						<%= link_to (image_tag 'redx.png'), association_path(association), :confirm => "Are you sure?", :method => :delete, :remote => true %>
-					</div>
-					<% unless association == step.associations.first %>
-					<div class="arrow_left">
-						<%= link_to (image_tag 'arrow_left.png'), url_for(:controller=>'associations', :action=>'update', :id => association, :move => "left"), :method => 'put', :remote => true %>
-					</div>
-					<% end %>
-					<% unless association == step.associations.last %>
-					<div class="arrow_right">
-						<%= link_to (image_tag 'arrow_right.png'), url_for(:controller=>'associations', :action=>'update', :id => association, :move => "right"), :method => 'put', :remote => true %>
-					</div>
-					<% end %>
-			<% unless association == step.associations.last %>
-				<div class="combine" >+</div>
-			<% end %>
-			</nobr>
-			</div>
+		<div class="span1 column padright">
+		<nobr>
+		<%= render association %>
+		<%= render :partial => 'shared/options', :locals => {:step => step, :association => association} %>
+		<% unless association == step.associations.last %>
+			<div class="combine" >+</div>
+		<% end %>
+		</nobr>
+		</div>
 		<% end %>
 		<div class="span1 column padright">
-			<%= image_tag 'newIngredient.png', :class => 'newIngredient', :id => step.id %>
+			<%= new_ingredient_img_tag step %>
 		</div>
 	</div><!-- /row --> 
 	<!-- <div class="row">
 		<div class="span10 columns offset3 note"><%= step.note %></div>
 	</div> -->
 <% end %>
-
-
-<script>
-	var toolbox = $('div.ingredient_toolbox');
-
-	$('img.newIngredient').click(
-		function() {
-			$('#associations_activeStep').val($(this).attr('id'));
-			toolbox.slideToggle("slow");
-		}
-	);
-
-	$('img.ingredient').qtip({
-		position: {
-	      my: 'top middle', 
-	      at: 'bottom middle'
-	   },
-	   style: { 
-	      tip: true,
-	      classes: 'ui-tooltip-dark ui-tooltip-rounded'
-	   }
-	});
-</script>
+<%= render :partial => 'shared/editjs' %>
