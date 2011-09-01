@@ -15,7 +15,7 @@ class AssociationsController < ApplicationController
 
   def update
   	association = Association.find(params[:id])
-	step = Step.find(association.step_id)
+    step = Step.find(association.step_id)
   	@recipe = Recipe.find(step.recipe_id)
 
   	current_pos = association.position
@@ -35,7 +35,7 @@ class AssociationsController < ApplicationController
 		association.save
   	end
 	
-	respond_to do |format|
+	  respond_to do |format|
 	    format.html { redirect_to edit_recipe_path(@recipe) }
 	    format.js
     end

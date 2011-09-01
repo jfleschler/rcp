@@ -17,6 +17,7 @@ class RecipesController < ApplicationController
 
   def create
 	  @recipe = Recipe.new(params[:recipe])
+    @recipe.name = @recipe.name.downcase
 	  if @recipe.save
 	    flash[:notice] = "recipe created!"
 	    redirect_to edit_recipe_path(@recipe)

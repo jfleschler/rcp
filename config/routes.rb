@@ -2,8 +2,10 @@ Rcp::Application.routes.draw do
   
   resources :ingredients
   resources :associations, :only => [:new, :update]
+  resources :steps,        :only => [:update]
+
   resources :recipes do
-    resources :steps do
+    resources :steps, :except => [:update] do
       resources :associations, :except => [:new, :update]
     end
   end

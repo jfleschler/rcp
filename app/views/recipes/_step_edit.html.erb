@@ -5,6 +5,7 @@
 		</div>
 		<div class="span1 column stepnum">
 			<div>
+				<%= render :partial => 'shared/stepOptions', :locals => {:step => step} %>
 				<h2><%= step.number_string %></h2>
 			</div>
 		</div>

@@ -5,9 +5,9 @@
 }
 
 .padright {
-    position: relative;
-	padding-right: 0;
-    height: 50px;
+  position: relative;
+  padding-right: 0;
+  height: 50px;
 }
 
 .center {
@@ -21,6 +21,21 @@
     left: 36px;
     top: -3px;
 }
+
+.arrow_down {
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: 35px;
+}
+
+.arrow_up {
+    position: absolute;
+    display: none;
+    left: 9px;
+    top: -5px;
+}
+
 .arrow_left {
     position: absolute;
     display: none;
@@ -30,7 +45,7 @@
 .arrow_right {
     position: absolute;
     display: none;
-    left: 30px;
+    left: 26px;
     top: 35px;
 }
 
@@ -42,6 +57,8 @@
 .stepnum {
 	vertical-align: middle;
 	margin-top: -5px;
+  position: relative;
+
 
 	h2 {
 		font: 34px/42px 'CombiNumeralsLtdRegular', Arial, sans-serif;letter-spacing: 0;
@@ -55,13 +72,19 @@ div.association {
 }
 
 .padright:hover .rem_association{
-    display: block;
+  display: block;
 }
 .padright:hover .arrow_left{
-    display: block;
+  display: block;
 }
 .padright:hover .arrow_right{
-    display: block;
+  display: block;
+}
+.stepnum:hover .arrow_up {
+  display: block;
+}
+.stepnum:hover .arrow_down {
+  display: block;
 }
 
 .ingredient_image {
