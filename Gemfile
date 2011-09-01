@@ -4,8 +4,6 @@ gem 'rails', '~> 3.1.0.rc6'
 
 gem 'json'
 
-gem 'foreman'
-
 group :assets do
   gem 'sass-rails', "  ~> 3.1.0.rc"
   gem 'coffee-rails', "~> 3.1.0.rc"
@@ -18,7 +16,7 @@ group :development, :test do
 end
 
 group :production do
-	#gem 'therubyracer-heroku'
+	gem 'therubyracer-heroku'
 	gem 'pg'
 end
 
