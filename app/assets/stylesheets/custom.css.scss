@@ -10,6 +10,15 @@
   height: 50px;
 }
 
+.main_recipe {
+  position: relative;
+}
+.ingredient_list {
+  position: absolute;
+  top: 60px;
+  right: 0;
+}
+
 .center {
     vertical-align: middle;
     margin-top: 10px;
