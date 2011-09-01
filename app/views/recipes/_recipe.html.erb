@@ -1,5 +1,6 @@
 <div>
 	<h1><%= @recipe.name %><small><%= link_to "(edit)", edit_recipe_path(@recipe) %></small></h1>
 	<hr />
+	<h3>steps</h3>
 		<%= render @recipe.steps %>
 </div>
