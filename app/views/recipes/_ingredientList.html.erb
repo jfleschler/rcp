@@ -1,8 +1,10 @@
+
 <div class="ingredient_list">
+<h3>ingredients</h3>
+<hr />
 	<% @recipe.associations.each do |a| %>
 		<div class="row">
-			<%= image_tag a.ingredient.image, :size => "15x15" %>
-			<%= "#{a.ingredient.name} - #{a.amount}" %>
+			<%= "#{a.amount} #{a.ingredient.name}" %>
 		</div>
 	<% end %>
 </div>
