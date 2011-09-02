@@ -20,6 +20,10 @@
   top: 60px;
   right: 0;
 
+  hr {
+    margin-bottom: -3px;
+  }
+
   .row {
     padding: 0;
     margin: 0;
@@ -58,15 +62,18 @@
     left: -6px;
     top: 35px;
 }
+
 .arrow_right {
     position: absolute;
     display: none;
     left: 26px;
     top: 35px;
 }
+
 .actions {
   background: #fff;
 }
+
 .stepIngredient {
     display: inline;
     font: 34px/42px 'CombiNumeralsLtdRegular', Arial, sans-serif;letter-spacing: 0;
