@@ -1,16 +1,24 @@
 Rcp::Application.routes.draw do
-  
+  match '/about',      :to => 'pages#about'
+  match '/contact',    :to => 'pages#contact'
+  match '/signup',     :to => 'users#new'
+  match '/signin',     :to => 'sessions#new'
+  match '/signout',    :to => 'sessions#destroy'
+
+  resources :sessions,     :only => [:new, :create, :destroy]
   resources :ingredients
   resources :associations, :only => [:new, :update]
   resources :steps,        :only => [:update]
+  resources :users 
 
   resources :recipes do
     resources :steps, :except => [:update] do
       resources :associations, :except => [:new, :update]
     end
   end
+  
 
-  root :to => 'recipes#index'
+  root :to => 'pages#home'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

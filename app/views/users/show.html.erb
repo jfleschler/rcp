@@ -1,0 +1,17 @@
+<h3><%= mine_or_theirs @user %> recipes</h3>
+<hr />
+
+<% @recipes.each do |recipe| %>
+	<div class="row">
+	<div class="span10 columns offset1">
+		<%= link_to recipe.name, recipe %>
+	</div>
+	</div><!-- /row --> 
+<% end %>
+<% if @user == current_user %>
+<div class="row">
+	<div class="span2 columns offset1">
+		<%= button_to "new recipe", new_recipe_path, :method => 'get', :class => "btn primary" %>
+	</div>
+</div>
+<% end %>

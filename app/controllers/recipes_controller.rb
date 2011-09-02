@@ -1,6 +1,9 @@
 class RecipesController < ApplicationController
+
+  before_filter :authenticate, :only => [:create, :destroy]
+
   def index
-  	@recipes = Recipe.all
+  	@recipes = Recipe.public
   end
 
   def show
@@ -8,7 +11,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-  	@recipe = Recipe.new
+  	@recipe = current_user.recipes.new
   end
 
   def edit
@@ -16,7 +19,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-	  @recipe = Recipe.new(params[:recipe])
+	  @recipe = current_user.recipes.new(params[:recipe])
     @recipe.name = @recipe.name.downcase
 	  if @recipe.save
 	    flash[:notice] = "recipe created!"

@@ -1,0 +1,30 @@
+<h1>sign in</h1>
+
+<%= form_tag sessions_path do %>
+
+<div class="row">
+<div class="span12 columns">
+  <div class="clearfix">
+    <%= label_tag :username, "username" %>
+    <div class="input">
+    <%= text_field_tag :username %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= label_tag :password, "password" %>
+    <div class="input">
+    <%= password_field_tag :password %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= submit_tag "sign in", :class => "btn primary" %>
+  </div>
+</div>
+</div>
+<% end %>
+
+<div class="row">
+<div class="span12 columns">
+new user? <%= link_to "sign up now!", signup_path %>
+</div>
+</div>

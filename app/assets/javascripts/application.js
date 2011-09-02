@@ -8,6 +8,14 @@
 //= require jquery_ujs
 //= require_tree .
 $(document).ready(function(){
+    $("body").bind("click", function (e) {
+        $('a.menu').parent("li").removeClass("open");
+    });
+
+    $("a.menu").click(function (e) {
+        var $li = $(this).parent("li").toggleClass('open');
+        return false;
+    });
 
 	var mouse_is_inside = false;
 	var toolbox_is_open = false;
