@@ -116,7 +116,7 @@ DEPENDENCIES
   jquery-rails
   json
   pg
-  rails (~> 3.1.0)
+  rails (>= 3.1.0)
   sass-rails (~> 3.1.0.rc)
   sqlite3
   therubyracer-heroku
