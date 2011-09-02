@@ -18,6 +18,25 @@ class RecipesController < ApplicationController
   	@recipe = Recipe.find(params[:id])
   end
 
+  def update
+    @recipe = Recipe.find(params[:id])
+    if params[:toggle]
+      @recipe.toggle(:public)
+      @recipe.save
+    end
+    
+    @user = User.find(params[:user_id])
+    if @user == current_user
+      @recipes = @user.recipes.all
+    else
+      @recipes = @user.recipes.public
+    end
+    respond_to do |format|
+      format.html { redirect_to edit_recipe_path(@recipe) }
+      format.js
+    end
+  end
+
   def create
 	  @recipe = current_user.recipes.new(params[:recipe])
     @recipe.name = @recipe.name.downcase

@@ -1,13 +1,9 @@
 <h3><%= mine_or_theirs @user %> recipes</h3>
 <hr />
 
-<% @recipes.each do |recipe| %>
-	<div class="row">
-	<div class="span10 columns offset1">
-		<%= link_to recipe.name, recipe %>
-	</div>
-	</div><!-- /row --> 
-<% end %>
+<div id="allrecipes">
+	<%= render :partial => 'recipes/recipelist', :locals => { :recipes => @recipes } %>
+</div>
 <% if @user == current_user %>
 <div class="row">
 	<div class="span2 columns offset1">
