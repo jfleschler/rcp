@@ -19,20 +19,21 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
-    if params[:toggle]
-      @recipe.toggle(:public)
-      @recipe.save
-    end
+    @user = User.find_by_id(params[:user_id])
+    recipe = Recipe.find(params[:id])
     
-    @user = User.find(params[:user_id])
-    if @user == current_user
+    recipe.toggle(:public)
+    recipe.save
+
+    recipe.reload
+
+    if(@user == current_user) 
       @recipes = @user.recipes.all
     else
       @recipes = @user.recipes.public
     end
+
     respond_to do |format|
-      format.html { redirect_to edit_recipe_path(@recipe) }
       format.js
     end
   end
@@ -47,4 +48,18 @@ class RecipesController < ApplicationController
 	    render :action => 'new'
 	  end
 	end
+
+  def prioritize
+    @recipe = Recipe.find(params[:id])
+    steps = @recipe.steps
+    steps.each do |step|
+      step.step_num = params['step'].index(step.id.to_s) + 1
+      step.save
+    end
+
+    @recipe.reload
+    respond_to do |format|
+      format.js
+    end
+  end
 end

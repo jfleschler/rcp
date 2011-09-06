@@ -7,22 +7,6 @@ module ApplicationHelper
 		link_to "delete", recipe_step_path(recipe, step), :confirm => "Are you sure?", :method => :delete, :remote => true
 	end
 
-	def arrow_right_tag(recipe, step, association)
-		link_to (image_tag 'arrow_right.png'), url_for(:controller => 'associations', :action => 'update', :move => 'right', :id => association), :move => "right", :method => 'put', :remote => true
-	end
-
-	def arrow_left_tag(recipe, step, association)
-		link_to (image_tag 'arrow_left.png'), url_for(:controller => 'associations', :action => 'update', :move => 'left', :id => association), :method => 'put', :remote => true
-	end
-
-	def arrow_up_tag(recipe, step)
-		link_to (image_tag 'arrow_up.png'), url_for(:controller => 'steps', :action => 'update', :move => 'up', :id => step), :method => 'put', :remote => true
-	end
-
-	def arrow_down_tag(recipe, step)
-		link_to (image_tag 'arrow_down.png'), url_for(:controller => 'steps', :action => 'update', :move => 'down', :id => step), :method => 'put', :remote => true
-	end
-
 	def delete_association_tag(recipe, step, association)
 		link_to (image_tag 'redx.png'), recipe_step_association_path(recipe, step, association), :confirm => "Are you sure?", :method => :delete, :remote => true
 	end

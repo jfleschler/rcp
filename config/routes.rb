@@ -8,10 +8,16 @@ Rcp::Application.routes.draw do
   resources :sessions,     :only => [:new, :create, :destroy]
   resources :ingredients
   resources :associations, :only => [:new, :update]
-  resources :steps,        :only => [:update]
   resources :users 
 
-  resources :recipes do
+  resources :steps,          :only => [:update] do
+    post :prioritize, :on => :collection
+  end
+  resources :recipes,        :only => [:update] do
+    post :prioritize, :on => :collection
+  end
+
+  resources :recipes, :except => [:update] do
     resources :steps, :except => [:update] do
       resources :associations, :except => [:new, :update]
     end

@@ -52,4 +52,15 @@ class StepsController < ApplicationController
       format.js
     end
   end
+
+  def prioritize
+    step = Step.find(params[:id])
+    associations = step.associations
+    associations.each do |association|
+      association.position = params['association'].index(association.id.to_s) + 1
+      association.save
+    end
+    render :nothing => true
+  end
+    
 end
