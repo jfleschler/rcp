@@ -48,10 +48,9 @@
 .main_recipe {
   position: relative;
 }
+
 .ingredient_list {
-  position: absolute;
-  top: 60px;
-  right: 0;
+  float: left;
 
   hr {
     margin-bottom: -3px;
@@ -80,20 +79,6 @@
   font-size: 10px;
 }
 
-.arrow_down {
-    position: absolute;
-    display: none;
-    left: 9px;
-    top: 35px;
-}
-
-.arrow_up {
-    position: absolute;
-    display: none;
-    left: 9px;
-    top: -5px;
-}
-
 .actions {
   background: #fff;
 }
@@ -107,22 +92,15 @@
 	vertical-align: middle;
 	margin-top: -5px;
   position: relative;
-  cursor: s-resize;
+  
+  .handle {
+    cursor: s-resize;
+  }
 
 	h2 {
 		font: 34px/42px 'CombiNumeralsLtdRegular', Arial, sans-serif;letter-spacing: 0;
 	}
 }
-
-
-.stepnum:hover .arrow_up {
-  display: block;
-}
-.stepnum:hover .arrow_down {
-  display: block;
-}
-
-
 
 .ingredient_amount {
     font-size: 0.8em;
@@ -162,7 +140,7 @@ h1 {
 	width: 35px;
 }
 
-.ingredient_image {
+li > .ingredient_image {
   cursor: w-resize;
 }
 h3 {

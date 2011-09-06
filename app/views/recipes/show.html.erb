@@ -1,1 +1,8 @@
-<%= render @recipe %>
+<div class="container-fluid">
+	<div class="sidebar">
+			<%= render :partial => 'ingredientList' %>
+	</div>
+	<div class="content">
+		<%= render @recipe %>
+	</div>
+</div>
