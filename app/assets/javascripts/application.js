@@ -130,8 +130,8 @@ $(document).ready(function(){
         var winW = $(window).width();
 
         //Set the popup window to center
-        $(modal).css('top',  (winH/2) + $(modal).height());
-        $(modal).css('left', ((winW/2)+150));
+        $(modal).css('top',  (winH/2) + 100);
+        $(modal).css('left', (winW/2) + 75);
      
         //transition effect
         $(modal).fadeIn(0); 
@@ -160,7 +160,7 @@ $(document).ready(function(){
         var winW = $(window).width();
 
         //Set the popup window to center
-        $(modal).css('top',  (winH/2) );
+        $(modal).css('top',  (winH/2) + 100);
         $(modal).css('left', ((winW/2)));
      
         //transition effect
