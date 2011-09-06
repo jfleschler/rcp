@@ -1,9 +1,9 @@
-<h3 class="user_title"><%= mine_or_theirs @user %> recipes</h3>
 <% if @user == current_user %>
+	<h3 class="user_title"><%= mine_or_theirs @user %> recipes</h3>
 	<%= link_to "new recipe", '#', :class => "btn primary new" %>
 	<%= render :partial => 'recipes/new_recipe_modal', :locals => {:recipe => @recipe}%>
 <% else %>
-	<div class="new">&nbsp;</div>
+	<h3><%= mine_or_theirs @user %> recipes</h3>
 <% end %>
 <hr />
 
