@@ -1,12 +1,13 @@
 <div class="main_recipe">
 	<h1><%= @recipe.name %>
-	<% if current_user && current_user.id == @recipe.user_id %>
-		<small><%= link_to "(edit)", edit_recipe_path(@recipe) %></small>
-	<% end %>
+		<% if current_user && current_user.id == @recipe.user_id %>
+			<small><%= link_to "(edit)", edit_recipe_path(@recipe) %></small>
+		<% end %>
 	</h1>
 	<hr />
-	<h3>steps</h3>
+	<div class="span12 columns">
+		<h3>steps</h3>
 		<%= render @recipe.steps %>
-
+	</div>
 </div>
 
