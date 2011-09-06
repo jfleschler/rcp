@@ -1,13 +1,10 @@
-<h3><%= mine_or_theirs @user %> recipes</h3>
+<h3 class="user_title"><%= mine_or_theirs @user %> recipes</h3>
+<% if @user == current_user %>
+	<%= link_to "new recipe", '#', :class => "btn primary new" %>
+	<%= render :partial => 'recipes/new_recipe_modal', :locals => {:recipe => @recipe}%>
+<% end %>
 <hr />
 
 <div id="allrecipes">
 	<%= render :partial => 'recipes/recipelist', :locals => { :recipes => @recipes } %>
 </div>
-<% if @user == current_user %>
-<div class="row">
-	<div class="span2 columns offset1">
-		<%= button_to "new recipe", new_recipe_path, :method => 'get', :class => "btn primary" %>
-	</div>
-</div>
-<% end %>

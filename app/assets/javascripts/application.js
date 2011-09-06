@@ -99,7 +99,6 @@ $(document).ready(function(){
     	}
     });
 
-
     $('input[type="image"].ingredient').click(function(e) {
         //Cancel the link behavior
         e.preventDefault();
@@ -137,6 +136,36 @@ $(document).ready(function(){
         //transition effect
         $(modal).fadeIn(0); 
     });
+
+    $('a.new').click(function(e) {
+        //Cancel the link behavior
+        e.preventDefault();
+
+        var id = $(this).attr('id');
+        var modal = $('div.modal');
+
+        //Get the screen height and width
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+     
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+         
+        //transition effect     
+        $('#mask').fadeIn(500);    
+        //$('#mask').fadeTo("fast",0.8);  
+     
+        //Get the window height and width
+        var winH = $(document).height();
+        var winW = $(window).width();
+
+        //Set the popup window to center
+        $(modal).css('top',  (winH/2) );
+        $(modal).css('left', ((winW/2)));
+     
+        //transition effect
+        $(modal).fadeIn(0); 
+    });
      
     //if close button is clicked
     $('.modal .close').click(function (e) {
@@ -152,7 +181,7 @@ $(document).ready(function(){
     }); 
 
     //if ok is clicked
-    $('#submitIngredient').click(function () {
+    $('#submitIngredient, #submitRecipe').click(function () {
 	    $('#mask, .modal').hide();
     });
 
