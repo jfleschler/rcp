@@ -2,6 +2,8 @@
 <% if @user == current_user %>
 	<%= link_to "new recipe", '#', :class => "btn primary new" %>
 	<%= render :partial => 'recipes/new_recipe_modal', :locals => {:recipe => @recipe}%>
+<% else %>
+	<div class="new">&nbsp;</div>
 <% end %>
 <hr />
 
