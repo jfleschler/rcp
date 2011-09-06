@@ -4,7 +4,9 @@
 	</div>
 	<div class="content">
 		<div class="row">
-			<h1><%= @recipe.name %> <small><%= link_to "(done editing)", @recipe %></small></h1>
+			<h1><nobr>
+				<%= @recipe.name %> <small><%= link_to "(done editing)", @recipe %></small>
+			</nobr></h1>
 			<hr />
 			<div class="span12 columns">
 				<h3>steps</h3>

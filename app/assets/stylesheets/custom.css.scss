@@ -131,8 +131,12 @@ label {
 }
 
 h1 {
-	font: 60px/68px 'ComfortaaRegular', Arial, sans-serif;letter-spacing: 0;
+	font: 52px/58px 'ComfortaaRegular', Arial, sans-serif;letter-spacing: 0;
 	margin-bottom: -10px;
+
+  small {
+    font-size: 14px;
+  }
 }
 
 .ingredient {
