@@ -1,9 +1,5 @@
 <div class="main_recipe">
-	<h1><nobr><%= @recipe.name %>
-		<% if current_user && current_user.id == @recipe.user_id %>
-			<small><%= link_to "(edit)", edit_recipe_path(@recipe) %></small>
-		<% end %></nobr>
-	</h1>
+	<h1><%= @recipe.name %></h1>
 	<hr />
 	<div class="span12 columns">
 		<h3>steps</h3>

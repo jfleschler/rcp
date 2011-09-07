@@ -79,6 +79,9 @@ $(document).ready(function(){
 		}
 	);
 
+    var editbar = $('#editbar');
+    editbar.slideToggle(0);
+    editbar.slideToggle("slow");
 	
 	$('.ingredient_toolbox').hover(function(){ 
         mouse_is_inside=true; 
@@ -112,7 +115,7 @@ $(document).ready(function(){
 
         $('#ingredient_name').html($(this).attr('title'));
         var id = $(this).attr('id');
-     	var modal = $('div.modal');
+     	var modal = $('div.addIngredient');
 
         //Get the screen height and width
         var maskHeight = $(document).height();
@@ -142,7 +145,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         var id = $(this).attr('id');
-        var modal = $('div.modal');
+        var modal = $('div.new_recipe');
 
         //Get the screen height and width
         var maskHeight = $(document).height();
@@ -167,6 +170,36 @@ $(document).ready(function(){
         $(modal).fadeIn(0); 
     });
      
+    $('a.update').click(function(e) {
+        //Cancel the link behavior
+        e.preventDefault();
+
+        var id = $(this).attr('id');
+        var modal = $('div.update_recipe');
+
+        //Get the screen height and width
+        var maskHeight = $(document).height();
+        var maskWidth = $(window).width();
+     
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+         
+        //transition effect     
+        $('#mask').fadeIn(500);    
+        //$('#mask').fadeTo("fast",0.8);  
+     
+        //Get the window height and width
+        var winH = $(document).height();
+        var winW = $(window).width();
+
+        //Set the popup window to center
+        $(modal).css('top',  (winH/2) + 100);
+        $(modal).css('left', ((winW/2)));
+     
+        //transition effect
+        $(modal).fadeIn(0); 
+    });
+
     //if close button is clicked
     $('.modal .close').click(function (e) {
         //Cancel the link behavior
@@ -181,11 +214,11 @@ $(document).ready(function(){
     }); 
 
     //if ok is clicked
-    $('#submitIngredient, #submitRecipe').click(function () {
+    $('#submitIngredient, #submitRecipe, #delete').click(function () {
 	    $('#mask, .modal').hide();
     });
 
-    $('#nevermind').click(function () {
+    $('#nevermind, #nevermind2').click(function () {
 	    $('#mask, .modal').hide();
     });
 });

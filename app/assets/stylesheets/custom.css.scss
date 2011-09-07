@@ -184,9 +184,31 @@ h3.bold {
   border-top: 1px solid black;
 
   div {
-  	
     padding: 15px;
   }
+}
+
+#editbar {
+  margin-top: 40px;
+  background-color: #00a;
+  height: 25px;
+  width: 100%;
+  z-index: 1;
+  
+  a:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+  }
+  
+  ul.nav > li a {
+    padding-top: 3px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+}
+
+.edit {
+  padding-top: 30px;
 }
 
 #mask {
@@ -213,9 +235,22 @@ h3.bold {
   z-index:9999;
 }
 
+.update_recipe {
+  width: 600px;
+  position:absolute;
+  display:none;
+  z-index:9999;
+}
+
 #associations_amount_unit {
     width: 70px;
     vertical-align: middle;
+}
+
+.modal-footer {
+  .btn_left {
+    float: left;
+  }
 }
 
 .modal-body {

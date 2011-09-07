@@ -23,7 +23,7 @@ Rcp::Application.routes.draw do
     end
   end
   
-
+  match 'recipes/:id/toggle' => 'recipes#toggle'
   root :to => 'pages#home'
   
   # The priority is based upon order of creation:
