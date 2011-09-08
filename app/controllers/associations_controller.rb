@@ -7,6 +7,9 @@ class AssociationsController < ApplicationController
 	  						  :amount        => "#{params[:associations][:amount]} #{params[:associations][:amount_unit]}",
 	  						  :position      => step.associations.count + 1})
 
+    @recipe.build_tag_list
+    @recipe.save
+
   	respond_to do |format|
 	    format.html { redirect_to edit_recipe_path(@recipe) }
 	    format.js
@@ -14,31 +17,7 @@ class AssociationsController < ApplicationController
   end
 
   def update
-  	association = Association.find(params[:id])
-    step = Step.find(association.step_id)
-  	@recipe = Recipe.find(step.recipe_id)
 
-  	current_pos = association.position
-
-  	if(params[:move] == 'left')
-  		swap_with = step.associations.find_by_position(current_pos - 1)
-  		swap_with.position += 1;
-  		swap_with.save
-  		association.position -= 1;
-		association.save
-
-  	elsif (params[:move] == 'right')
-  	  	swap_with = step.associations.find_by_position(current_pos + 1)
-  		swap_with.position -= 1;
-  		swap_with.save
-  		association.position += 1;
-		association.save
-  	end
-	
-	  respond_to do |format|
-	    format.html { redirect_to edit_recipe_path(@recipe) }
-	    format.js
-    end
   end
 
   def destroy
@@ -48,6 +27,9 @@ class AssociationsController < ApplicationController
 
   	association.destroy()
 
+    @recipe.build_tag_list
+    @recipe.save
+    
   	respond_to do |format|
 	    format.html { redirect_to edit_recipe_path(@recipe) }
 	    format.js

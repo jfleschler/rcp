@@ -1,11 +1,5 @@
 <div class="container">
 <h3>public recipes</h3>
 <hr />
-<% @recipes.each do |recipe| %>
-	<div class="row">
-	<div class="span10 columns offset1">
-		<%= link_to recipe.name, recipe %> by <%= link_to recipe.user.username, recipe.user %>
-	</div>
-	</div><!-- /row --> 
-<% end %>
+<%= render :partial => 'recipes/recipelist', :locals => {:recipes => @recipes} %>
 </div>

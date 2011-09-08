@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   before_filter :authenticate, :only => [:create, :destroy]
 
   def index
-  	@recipes = Recipe.public
+  	@recipes = Recipe.public.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
@@ -23,6 +23,7 @@ class RecipesController < ApplicationController
     @recipe.update_attributes(params[:recipe])
 
     if @recipe.save
+      @recipe.reload
       flash[:notice] = "recipe saved!"
       redirect_to edit_recipe_path(@recipe)
     else
@@ -34,6 +35,7 @@ class RecipesController < ApplicationController
 	  @recipe = current_user.recipes.new(params[:recipe])
     @recipe.name = @recipe.name.downcase
 	  if @recipe.save
+      @recipe.reload
 	    flash[:notice] = "recipe created!"
 	    redirect_to edit_recipe_path(@recipe)
 	  else
@@ -58,12 +60,10 @@ class RecipesController < ApplicationController
     recipe.toggle(:public)
     recipe.save
 
-    recipe.reload
-
     if(@user == current_user) 
-      @recipes = @user.recipes.all
+      @recipes = @user.recipes.paginate(:page => params[:page], :per_page => 30)
     else
-      @recipes = @user.recipes.public
+      @recipes = @user.recipes.public.paginate(:page => params[:page], :per_page => 30)
     end
 
     respond_to do |format|
@@ -78,8 +78,10 @@ class RecipesController < ApplicationController
       step.step_num = params['step'].index(step.id.to_s) + 1
       step.save
     end
+    
+    @recipe.build_tag_list
+    @recipe.save
 
-    @recipe.reload
     respond_to do |format|
       format.js
     end

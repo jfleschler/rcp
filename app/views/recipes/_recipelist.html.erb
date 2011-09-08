@@ -1,16 +1,25 @@
+<%= will_paginate recipes %>
+<div class="no_pad">
 <% recipes.each do |recipe| %>
-	<div class="row">
-	<div class="span1 column">
-		<% if @user == current_user %>
-			<% if recipe.public? %>
-				<%= link_to "public", url_for(:controller => 'recipes', :action => 'toggle', :toggle => true, :user_id => @user, :id => recipe), :method => 'put', :remote => true, :class => "btn small info" %>
-			<% else %>
-				<%= link_to "private", url_for(:controller => 'recipes', :action => 'toggle', :toggle => true, :user_id => @user, :id => recipe), :method => 'put', :remote => true, :class => "btn small danger" %>
+	<div class="row <%= cycle("odd","even") %> <%= is_last? recipe, @recipes.last %>">
+		<div class="span1 column center">
+			<% if @user == current_user && @user.recipes.find(recipe) %>
+				<%= public_private_button recipe %>
 			<% end %>
-		<% end %>
+		</div>
+		<div class="span10 columns">
+			<div class="block">
+				<span class="bold">
+					<%= link_to recipe.name, recipe %>
+				</span>
+			by <%= link_to recipe.user.username, recipe.user %>
+			</div>
+			<div class="block ">&nbsp;&nbsp;&nbsp;
+				<% recipe.tags.each do |tag| %>
+					<span class="tag"> <%= tag %> </span>
+				<% end %>
+			</div>
+		</div>
 	</div>
-	<div class="span10 columns">
-		<%= link_to recipe.name, recipe %>
-	</div>
-	</div><!-- /row --> 
 <% end %>
+</div>
