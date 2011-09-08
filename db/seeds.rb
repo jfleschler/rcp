@@ -43,7 +43,7 @@ keywords = [
 	keyword.save
 end
 
-Recipe.each do |r|
+Recipe.all.each do |r|
 	r.build_tag_list
 	r.save
 end
