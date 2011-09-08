@@ -42,3 +42,8 @@ keywords = [
 	keyword.update_attributes(k)
 	keyword.save
 end
+
+Recipe.each do |r|
+	r.build_tag_list
+	r.save
+end
