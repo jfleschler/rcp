@@ -35,7 +35,8 @@ keywords = [
 	{:word => "chicken"},
 	{:word => "beef"},
 	{:word => "fish"},
-	{:word => "soup"}
+	{:word => "soup"},
+	{:word => "stuffing"}
 ].each do |k|
 	keyword = Keyword.find_or_create_by_word(k)
 	keyword.update_attributes(k)
