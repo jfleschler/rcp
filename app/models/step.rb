@@ -3,7 +3,7 @@ class Step < ActiveRecord::Base
 	has_many :associations, :dependent => :destroy
 	has_many :ingredients, :through => :associations
 
-	default_scope :order => 'step_num'
+	scope :ordered, lambda { order(:step_num) }
 
 	before_destroy :renumber_remaining
 

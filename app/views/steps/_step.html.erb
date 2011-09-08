@@ -4,13 +4,13 @@
 			<h2><%= step.number_string %></h2>
 		</div>
 	</div>
-	<% step.associations.each do |association| %>
+	<% step.associations.ordered.each do |association| %>
 		<div class="span1 column padright">
 		<nobr>
 		<div class="association">
 		<%= render association %>
 		</div>
-		<% unless association == step.associations.last %>
+		<% unless association == step.associations.ordered.last %>
 			<div class="combine" >+</div>
 		<% end %>
 		</nobr>

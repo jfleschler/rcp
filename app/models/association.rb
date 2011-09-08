@@ -4,7 +4,8 @@ class Association < ActiveRecord::Base
 
 	before_destroy :renumber_remaining
 
-	default_scope :order => 'position'
+	scope :ordered, lambda { order(:position) }
+	scope :list, lambda { order(:ingredient_id) }
 
 	def ingredient
 		Ingredient.find(ingredient_id)

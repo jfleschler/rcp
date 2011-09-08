@@ -1,6 +1,6 @@
 
 <ul id="step-list">
-<% @recipe.steps.each do |step| %>
+<% @recipe.steps.ordered.each do |step| %>
 <li id="step_<%= step.id %>" class="s">
 	<div class="row">
 		<div class="span1 column center">
@@ -13,7 +13,7 @@
 		</div>
 		<div class="span10 columns padright">
 			<ul id="i_step_<%= step.id %>" class="step">
-				<% step.associations.each do |association| %>
+				<% step.associations.ordered.each do |association| %>
 					<li id="association_<%= association.id %>" class="a">
 						<%= render :partial => 'shared/options', :locals => {:step => step, :association => association} %>
 						<%= render association %>
