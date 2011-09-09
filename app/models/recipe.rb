@@ -15,6 +15,7 @@ class Recipe < ActiveRecord::Base
 	scope :public, lambda { where(:public => true) }
 	
 	before_save :build_tag_list
+	before_destroy :remove_ingredient
 
 	def step_attributes=(step_attributes)
 	  step_attributes.each do |attributes|
@@ -33,6 +34,13 @@ class Recipe < ActiveRecord::Base
 
 		ingredients.each do |i|
 			tag_list.add(i.tag_name)
+		end
+	end
+
+	def remove_ingredient
+		unless has_ingredient == nil
+			i = Ingredient.find(has_ingredient)
+			i.destroy
 		end
 	end
 end

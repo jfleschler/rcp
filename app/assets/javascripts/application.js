@@ -41,7 +41,7 @@ $(document).ready(function(){
 	var mouse_is_inside = false;
 	var toolbox_is_open = false;
 
-	$('input[type="image"]').qtip({
+	$('input[type="image"].ingredient').qtip({
 		position: {
 	      my: 'top middle', 
 	      at: 'bottom middle'

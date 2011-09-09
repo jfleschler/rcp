@@ -5,8 +5,17 @@
       <a href="#" class="close">&times;</a> 
     </div> 
     <div class="modal-body"> 
-      <%= f.label :name, "name" %>&nbsp;&nbsp;
-      <%= f.text_field :name, :class => "xlarge" %>
+      <div id="recipe_image">
+        <%= image_tag(@recipe.image, :size => "70x70", :title => @recipe.name, :class => "ingredient") %>
+      </div>
+      <div class="fields">
+        <%= f.label :name, "name" %>&nbsp;&nbsp;
+        <%= f.text_field :name, :class => "xlarge" %>
+      </div>
+      <div id="create_remove_ingredient">
+        <p>create an ingredient based on this recipe for use in future recipes!</p>
+        <%= create_remove_ingredient_button @recipe %>
+      </div>
     </div>
     <div class="modal-footer"> 
       <div class="btn_left">

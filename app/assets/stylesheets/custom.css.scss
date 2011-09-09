@@ -143,9 +143,25 @@ h1 {
   }
 }
 
+#create_remove_ingredient {
+  width: 100%;
+  padding-top: 20px;
+  text-align: center;
+}
+
+#recipe_image {
+  width: 100%;
+  padding-bottom: 20px;
+    
+  img {
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto;
+  }
+}
+
 .ingredient {
-	height: 35px;
-	width: 35px;
+	
 }
 
 li > .ingredient_image {

@@ -1,9 +1,10 @@
 <div class="ingredient_toolbox">
 	<div>
+	<span id="recipe_ingredients"><%= render :partial => 'recipe_ingredients' %></span>
 	<h3>steps</h3>
 		<-- steps go here -->
 	<h3>ingredients</h3>
-	<% Ingredient.all.each do |i| %>
+	<% Ingredient.where(:user_id => nil).each do |i| %>
 		<%= image_submit_tag i.image, :title => i.name, :class => "ingredient", :id => i.id, :method => 'get' %>
 	<% end %>
 	</div>

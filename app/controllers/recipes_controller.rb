@@ -34,6 +34,7 @@ class RecipesController < ApplicationController
   def create
 	  @recipe = current_user.recipes.new(params[:recipe])
     @recipe.name = @recipe.name.downcase
+
 	  if @recipe.save
       @recipe.reload
 	    flash[:notice] = "recipe created!"
@@ -65,6 +66,36 @@ class RecipesController < ApplicationController
     else
       @recipes = @user.recipes.public.paginate(:page => params[:page], :per_page => 30)
     end
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def create_ingredient
+    @user = User.find_by_id(params[:user_id])
+    @recipe = @user.recipes.find(params[:id])
+
+    ingredient = Ingredient.create({:name => @recipe.name, :image => @recipe.image, :tag_name => "multi-recipe", :user_id => @user.id})
+    ingredient.reload
+    @recipe.has_ingredient = ingredient.id
+    @recipe.build_tag_list
+    @recipe.save
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def remove_ingredient
+    @user = User.find_by_id(params[:user_id])
+    @recipe = Recipe.find(params[:id])
+
+    ingredient = Ingredient.find(@recipe.has_ingredient)
+    ingredient.destroy
+    @recipe.has_ingredient = nil
+    @recipe.build_tag_list
+    @recipe.save
 
     respond_to do |format|
       format.js
