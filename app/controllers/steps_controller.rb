@@ -41,4 +41,12 @@ class StepsController < ApplicationController
     render :nothing => true
   end
     
+
+  def save_note
+    step = Step.find(params[:id])
+    step.note = params[:note]
+    step.save
+    
+    render :nothing => true
+  end
 end

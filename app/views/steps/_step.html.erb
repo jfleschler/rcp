@@ -4,22 +4,20 @@
 			<h2><%= step.number_string %></h2>
 		</div>
 	</div>
-	<% step.associations.ordered.each do |association| %>
-		<div class="span1 column padright">
-		<nobr>
-		<div class="association">
-		<%= render association %>
+
+	<div class="span10 columns">
+		<div class="row">
+			<div class="span8 columns note"><%= step.note %></div>
 		</div>
-		<% unless association == step.associations.ordered.last %>
-			<div class="combine" >+</div>
-		<% end %>
-		</nobr>
+	
+		<div class="row">
+			<% step.associations.ordered.each do |association| %>
+			<div class="span1 column padright">
+				<div class="association">
+					<%= render association %>
+				</div>
+			</div>
+			<% end %>
 		</div>
-	<% end %>
-	<div class="span1 column padright">
-		&nbsp;
 	</div>
-</div><!-- /row --> 
-<!--<div class="row">
-	<div class="span10 columns offset3 note"><%= step.note %></div>
-</div> -->
+</div>

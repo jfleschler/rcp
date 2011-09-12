@@ -122,7 +122,12 @@ a.new {
 }
 
 .note {
-	margin-top: -20px;
+	margin-bottom: -15px;
+
+  input {
+    width: 550px;
+    maxlength: 140;
+  }
 }
 
 body {

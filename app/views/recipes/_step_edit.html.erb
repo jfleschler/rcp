@@ -11,45 +11,62 @@
 				<h2><%= step.number_string %></h2>
 			</div>
 		</div>
-		<div class="span10 columns padright">
-			<ul id="i_step_<%= step.id %>" class="step">
-				<% step.associations.ordered.each do |association| %>
-					<li id="association_<%= association.id %>" class="a">
-						<%= render :partial => 'shared/options', :locals => {:step => step, :association => association} %>
-						<%= render association %>
-					</li>
-				<% end %>
-			</ul>
-			<%= new_ingredient_img_tag step %>
+
+		<div class="span10 columns">
+			<div class="row">
+				<div class="span9 columns note"><%= text_field :step, "n_#{step.id}", :value => step.note %></div>
+			</div>
+			<div class="row">
+				<div class="span9 columns padright">
+					<ul id="i_step_<%= step.id %>" class="step">
+						<% step.associations.ordered.each do |association| %>
+							<li id="association_<%= association.id %>" class="a">
+								<%= render :partial => 'shared/options', :locals => {:step => step, :association => association} %>
+								<%= render association %>
+							</li>
+						<% end %>
+					</ul>
+					<%= new_ingredient_img_tag step %>
+				</div>
+			</div>
 		</div>
 	</div><!-- /row --> 
-	<!-- <div class="row">
-		<div class="span10 columns offset3 note"><%= step.note %></div>
-	</div> -->
+	<!--  -->
 
 	<script>
 	$(document).ready(function(){
-	$('#i_step_<%= step.id %>').disableSelection();
-	$('#i_step_<%= step.id %>').sortable({
-		axis: 'x',
-		dropOnEmpty: false, 
-		handle: '.handle', 
-		items: 'li.a',
-		cursor: 's-resize',
-		opacity: 0.8,
-		scroll: false,
-		revert: true,
-		update: function(){
+		$('#i_step_<%= step.id %>').disableSelection();
+		$('#i_step_<%= step.id %>').sortable({
+			axis: 'x',
+			dropOnEmpty: false, 
+			handle: '.handle', 
+			items: 'li.a',
+			cursor: 's-resize',
+			opacity: 0.8,
+			scroll: false,
+			revert: true,
+			update: function(){
+				$.ajax({
+				    type: 'post', 
+				    data: $('#i_step_<%= step.id %>').sortable('serialize') + '&id=<%= step.id %>', 
+				    dataType: 'script', 
+				    complete: function(request){
+				        $(this).effect('highlight');
+				        $(this).sortable("refresh" );
+				      },
+				    url: '/steps/prioritize'})
+				}
+			});
+
+		$('#step_n_<%= step.id %>').blur(function() {
 			$.ajax({
 			    type: 'post', 
-			    data: $('#i_step_<%= step.id %>').sortable('serialize') + '&id=<%= step.id %>', 
+			    data: 'note=' + $(this).val() + '&id=<%= step.id %>', 
 			    dataType: 'script', 
 			    complete: function(request){
-			        $(this).effect('highlight');
-			        $(this).sortable("refresh" );
+			        alert($(this).val());
 			      },
-			    url: '/steps/prioritize'})
-			}
+			    url: '/steps/save_note'})
 		});
 	});
 	</script>
