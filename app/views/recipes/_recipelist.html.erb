@@ -1,6 +1,6 @@
 <%= will_paginate recipes %>
 <div class="no_pad">
-<% recipes.each do |recipe| %>
+<% @recipes.each do |recipe| %>
 	<div class="row <%= cycle("odd","even") %> <%= is_last? recipe, @recipes.last %>">
 		<div class="span1 column center">
 			<% if @user == current_user && @user.recipes.find(recipe) %>
