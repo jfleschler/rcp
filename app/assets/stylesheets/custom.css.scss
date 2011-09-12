@@ -83,6 +83,10 @@
   background: #fff;
 }
 
+.stepline {
+  margin-bottom: 0;
+}
+
 .stepIngredient {
     display: inline;
     font: 34px/42px 'CombiNumeralsLtdRegular', Arial, sans-serif;letter-spacing: 0;
@@ -90,7 +94,7 @@
 
 .stepnum {
 	vertical-align: middle;
-	margin-top: -5px;
+	margin-top: -10px;
   position: relative;
   
   .handle {
@@ -125,6 +129,7 @@ a.new {
 	margin-bottom: -15px;
 
   input {
+    height: 10px;
     width: 550px;
     maxlength: 140;
   }

@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row stepline">
 	<div class="span1 column offset1 stepnum">
 		<div>
 			<h2><%= step.number_string %></h2>
@@ -9,7 +9,6 @@
 		<div class="row">
 			<div class="span8 columns note"><%= step.note %></div>
 		</div>
-	
 		<div class="row">
 			<% step.associations.ordered.each do |association| %>
 			<div class="span1 column padright">
