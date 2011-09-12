@@ -107,7 +107,7 @@ $(document).ready(function(){
         e.preventDefault();
 
         //Clear previous values
-        $('#associations_amount').val('');
+        //$('#associations_amount').val('');
         //Store the selected ingerdient
         $('#associations_selectedIngredient').val($(this).attr('id'));
         $('#selectedImage').attr('src', $(this).attr('src'));
