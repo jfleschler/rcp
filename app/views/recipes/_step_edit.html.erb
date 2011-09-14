@@ -64,7 +64,7 @@
 			    data: 'note=' + $(this).val() + '&id=<%= step.id %>', 
 			    dataType: 'script', 
 			    complete: function(request){
-			        alert($(this).val());
+			        
 			      },
 			    url: '/steps/save_note'})
 		});
