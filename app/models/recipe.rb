@@ -23,6 +23,10 @@ class Recipe < ActiveRecord::Base
 	  end
 	end
 
+	def temperature
+		cook_temp.to_s + temp_unit.to_s
+	end
+
 	def build_tag_list
 		tag_list.clear
 

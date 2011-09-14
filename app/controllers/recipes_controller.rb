@@ -22,7 +22,8 @@ class RecipesController < ApplicationController
     @recipe = current_user.recipes.find(params[:id])
     @recipe.name = params[:name]
     @recipe.cook_time = params[:cook_time]
-    @recipe.cook_temp = params[:cook_temp]
+    @recipe.cook_temp = params[:cook_temp] 
+    @recipe.temp_unit = params[:temp_unit]
     
     if @recipe.save
       @recipe.reload

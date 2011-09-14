@@ -129,11 +129,12 @@ $(document).ready(function(){
         //$('#mask').fadeTo("fast",0.8);  
      
         //Get the window height and width
-        var winH = $(document).height();
+        var winH = $(window).height();
         var winW = $(window).width();
+        var scrollH = $(document).scrollTop();
 
         //Set the popup window to center
-        $(modal).css('top',  (winH/2) + 100);
+        $(modal).css('top',  (winH/2) + 100 + scrollH);
         $(modal).css('left', (winW/2) + 75);
      
         //transition effect
@@ -159,11 +160,12 @@ $(document).ready(function(){
         //$('#mask').fadeTo("fast",0.8);  
      
         //Get the window height and width
-        var winH = $(document).height();
+        var winH = $(window).height();
         var winW = $(window).width();
-
+        var scrollH = $(document).scrollTop();
+        
         //Set the popup window to center
-        $(modal).css('top',  (winH/2) + 100);
+        $(modal).css('top',  (winH/2) + 100 + scrollH);
         $(modal).css('left', ((winW/2)));
      
         //transition effect
@@ -180,7 +182,7 @@ $(document).ready(function(){
         //Get the screen height and width
         var maskHeight = $(document).height();
         var maskWidth = $(window).width();
-     
+        
         //Set height and width to mask to fill up the whole screen
         $('#mask').css({'width':maskWidth,'height':maskHeight});
          
@@ -189,11 +191,12 @@ $(document).ready(function(){
         //$('#mask').fadeTo("fast",0.8);  
      
         //Get the window height and width
-        var winH = $(document).height();
+        var winH = $(window).height();
         var winW = $(window).width();
+        var scrollH = $(document).scrollTop();
 
         //Set the popup window to center
-        $(modal).css('top',  (winH/2) + 100);
+        $(modal).css('top',  (winH/2) + 100 + scrollH);
         $(modal).css('left', ((winW/2)));
      
         //transition effect

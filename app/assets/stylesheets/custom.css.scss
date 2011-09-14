@@ -337,10 +337,12 @@ h3.user_title {
       padding-right: 5px;
   }
 
-  input {
+  input, select {
       vertical-align: middle;
   }
-
+  select {
+    width: 60px;
+  }
   div {
     margin-bottom: 0;
   }
