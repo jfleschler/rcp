@@ -49,6 +49,21 @@
   position: relative;
 }
 
+.recipe_settings {
+  float: left;
+  color: black;
+
+  .row {
+    padding: 0;
+    margin: 0;
+    margin-bottom: -5px;
+  }
+  .column, .columns {
+    padding: 0;
+    margin: 0;
+  }
+}
+
 .ingredient_list {
   float: left;
   color: black;
@@ -142,7 +157,7 @@ body {
 }
 
 label {
-	font: 18px/26px 'GoodDogRegular', Arial, sans-serif;letter-spacing: 0;
+	font: 18px/26px 'FolksRegular', Arial, sans-serif;letter-spacing: 0;
 }
 
 h1 {
@@ -325,6 +340,14 @@ h3.user_title {
   input {
       vertical-align: middle;
   }
+
+  div {
+    margin-bottom: 0;
+  }
+}
+
+input.cook_temp {
+  width: 25px;
 }
 
 @font-face {

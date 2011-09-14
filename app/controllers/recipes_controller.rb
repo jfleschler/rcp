@@ -20,8 +20,10 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = current_user.recipes.find(params[:id])
-    @recipe.update_attributes(params[:recipe])
-
+    @recipe.name = params[:name]
+    @recipe.cook_time = params[:cook_time]
+    @recipe.cook_temp = params[:cook_temp]
+    
     if @recipe.save
       @recipe.reload
       flash[:notice] = "recipe saved!"

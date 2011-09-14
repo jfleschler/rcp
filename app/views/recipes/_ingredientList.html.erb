@@ -1,3 +1,18 @@
+<div class="recipe_settings">
+<div class="row">
+	<div class="span1 column">
+		<%= image_tag 'oven.jpg' %>
+	</div>
+	<div class="span2 columns">
+		<div class="row">
+			<%= "#{@recipe.cook_temp}\u00B0 F" %>
+		</div>
+		<div class="row">
+			<%= @recipe.cook_time %>
+		</div>
+	</div>
+</div>
+</div>
 <div class="ingredient_list">
 	<h3>ingredients</h3>
 	<hr />

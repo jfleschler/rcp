@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110909144518) do
+ActiveRecord::Schema.define(:version => 20110914145907) do
 
   create_table "associations", :force => true do |t|
     t.integer  "step_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(:version => 20110909144518) do
     t.boolean  "public",         :default => false
     t.string   "image",          :default => "recipe_placeholder.png"
     t.integer  "has_ingredient"
+    t.string   "cook_temp"
+    t.string   "cook_time"
   end
 
   create_table "steps", :force => true do |t|
