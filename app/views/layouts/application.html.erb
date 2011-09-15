@@ -37,6 +37,14 @@
 	  	</div>
  	</div>
 </div>
+
+
+
+
+<% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_#{key}" %>
+<% end %>
+
 <%= yield %>
 <!--<%= debug(params) if Rails.env.development? %>-->
 </body>

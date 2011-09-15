@@ -83,6 +83,10 @@ $(document).ready(function(){
     editbar.slideToggle(0);
     editbar.slideToggle("slow");
 	
+    var flashbar = $('div.message');
+    flashbar.slideToggle(0);
+    flashbar.slideToggle("slow").delay(2000).slideToggle("slow");
+
 	$('.ingredient_toolbox').hover(function(){ 
         mouse_is_inside=true; 
     }, function(){ 

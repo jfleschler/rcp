@@ -3,12 +3,6 @@
   <h1>sign in</h1>
 
   <%= form_tag sessions_path do %>
-  <% if flash[:alert] %>
-    <div class="alert-message error">
-      <p>&nbsp;&nbsp;&nbsp;<strong>oops! </strong><%= flash[:alert] %></p>
-    </div>
-  <% end %>
-
   <div class="row">
   <div class="span12 columns">
     <div class="clearfix">

@@ -1,13 +1,25 @@
 class RecipesController < ApplicationController
 
-  before_filter :authenticate, :only => [:create, :destroy]
+  before_filter :authenticate, :only => [:create, :destroy, :update]
 
   def index
   	@recipes = Recipe.public.paginate(:page => params[:page], :per_page => 30)
   end
 
   def show
-  	@recipe = Recipe.find(params[:id])
+  	@recipe = Recipe.find_by_id(params[:id])
+    
+    if signed_in?
+      unless @recipe && (@recipe.public? || current_user.recipes.find_by_id(params[:id]))
+        flash[:warning] = "sorry, recipe does not exist or is private!"
+        redirect_to recipes_path
+      end
+    else
+      unless @recipe && @recipe.public?
+        flash[:warning] = "sorry, recipe does not exist or is private!"
+        redirect_to recipes_path
+      end
+    end
   end
 
   def new
@@ -27,7 +39,7 @@ class RecipesController < ApplicationController
     
     if @recipe.save
       @recipe.reload
-      flash[:notice] = "recipe saved!"
+      #flash[:notice] = "recipe saved!"
       redirect_to edit_recipe_path(@recipe)
     else
       render :nothing => true
