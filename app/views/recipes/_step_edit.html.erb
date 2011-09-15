@@ -61,12 +61,12 @@
 		$('#step_n_<%= step.id %>').blur(function() {
 			$.ajax({
 			    type: 'post', 
-			    data: 'note=' + $(this).val() + '&id=<%= step.id %>', 
+			    data: 'note=' + $(this).val(), 
 			    dataType: 'script', 
 			    complete: function(request){
 			        
 			      },
-			    url: '/steps/save_note'})
+			    url: '/steps/<%= step.id %>/save_note'})
 		});
 	});
 	</script>
