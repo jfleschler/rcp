@@ -12,7 +12,7 @@ Rcp::Application.routes.draw do
 
   resources :steps,          :only => [:update] do
     post :prioritize, :on => :collection
-    post :save_note, :on => :collection
+    #post :save_note, :on => :collection
   end
   resources :recipes,        :only => [:update] do
     post :prioritize, :on => :collection
@@ -27,7 +27,8 @@ Rcp::Application.routes.draw do
   match 'recipes/:id/toggle' => 'recipes#toggle'
   match 'recipes/:id/create_ingredient' => 'recipes#create_ingredient'
   match 'recipes/:id/remove_ingredient' => 'recipes#remove_ingredient'
-  
+  match 'steps/save_note' => 'steps#save_note'
+
   root :to => 'pages#home'
   
   # The priority is based upon order of creation:
