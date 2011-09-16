@@ -27,6 +27,12 @@
         <%= text_field_tag :cook_time, @recipe.cook_time, :class => "xlarge" %>
         </div>
       </div>
+      <div class="clearfix">
+        <%= label_tag :makes, "makes" %>
+        <div class="input">
+        <%= text_field_tag :makes, @recipe.makes, :class => "xlarge" %>
+        </div>
+      </div>
       <div id="create_remove_ingredient">
         <p>create an ingredient based on this recipe for use in future recipes!</p>
         <%= create_remove_ingredient_button @recipe %>

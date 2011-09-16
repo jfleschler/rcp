@@ -36,6 +36,7 @@ class RecipesController < ApplicationController
     @recipe.cook_time = params[:cook_time]
     @recipe.cook_temp = params[:cook_temp] 
     @recipe.temp_unit = params[:temp_unit]
+    @recipe.makes = params[:makes]
     
     if @recipe.save
       @recipe.reload
