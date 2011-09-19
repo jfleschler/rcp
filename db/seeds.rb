@@ -6,19 +6,24 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 ingredients = [
-	{:name => "butter",				:image => "placeholder.png",		:tag_name => ""},
+	{:name => "salted butter",		:image => "placeholder.png",		:tag_name => ""},
+	{:name => "unsalted butter",	:image => "placeholder.png",		:tag_name => ""},
 	{:name => "white sugar",		:image => "placeholder.png",		:tag_name => ""},
-	{:name => "brown sugar",		:image => "placeholder.png",		:tag_name => ""},
+	{:name => "dark brown sugar",	:image => "placeholder.png",		:tag_name => ""},
+	{:name => "light brown sugar",	:image => "placeholder.png",		:tag_name => ""},
 	{:name => "egg",				:image => "placeholder.png",		:tag_name => ""},
+	{:name => "egg white",			:image => "placeholder.png",		:tag_name => ""},
 	{:name => "vanilla extract",	:image => "placeholder.png",		:tag_name => ""},
-	{:name => "flour",				:image => "placeholder.png",		:tag_name => ""},
+	{:name => "all-purpose flour",	:image => "placeholder.png",		:tag_name => ""},
 	{:name => "salt",				:image => "placeholder.png",		:tag_name => ""},
 	{:name => "baking powder",		:image => "placeholder.png",		:tag_name => ""},
 	{:name => "baking soda",		:image => "placeholder.png",		:tag_name => ""},
 	{:name => "chocolate chips",	:image => "placeholder.png",		:tag_name => "chocolate"},
 	{:name => "cinnamon",			:image => "placeholder.png",		:tag_name => "cinnamon"},
 	{:name => "milk",				:image => "placeholder.png",		:tag_name => ""},
-	{:name => "raisins",			:image => "placeholder.png",		:tag_name => "raisins"}
+	{:name => "raisins",			:image => "placeholder.png",		:tag_name => "raisins"},
+	{:name => "cake flour",			:image => "placeholder.png",		:tag_name => ""},
+	{:name => "strawberries",		:image => "placeholder.png",		:tag_name => ""}
 ].each do |i|
 	ingredient = Ingredient.find_or_create_by_name(i)
 	ingredient.update_attributes(i)
@@ -36,7 +41,8 @@ keywords = [
 	{:word => "beef"},
 	{:word => "fish"},
 	{:word => "soup"},
-	{:word => "stuffing"}
+	{:word => "stuffing"},
+	{:word => "cupcake"}
 ].each do |k|
 	keyword = Keyword.find_or_create_by_word(k)
 	keyword.update_attributes(k)

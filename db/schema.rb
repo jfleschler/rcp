@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916131702) do
+ActiveRecord::Schema.define(:version => 20110919155730) do
 
   create_table "associations", :force => true do |t|
     t.integer  "step_id"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110916131702) do
     t.datetime "updated_at"
     t.string   "tag_name"
     t.integer  "user_id"
+    t.integer  "recipe_id"
   end
 
   create_table "keywords", :force => true do |t|

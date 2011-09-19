@@ -1,3 +1,4 @@
+<% unless @recipe.cook_time == "" && @recipe.temperature == "" %>
 <div class="recipe_settings">
 	<div class="row">
 		<div class="span1 column">
@@ -18,8 +19,8 @@
 		makes: <%= @recipe.makes %>
 	</div>
 	<% end %>
-
 </div>
+<% end %>
 
 <div class="ingredient_list">
 	<h3>ingredients</h3>
@@ -28,5 +29,19 @@
 		<div class="row">
 			<%= "#{a.amount} #{a.ingredient.name}" %>
 		</div>
+	<% end %>
+
+	<% @recipe.recipes_as_ingredients.each do |r| %>
+		<div class="row">&nbsp;</div>
+		<div class="row">
+			<h3><%= "#{r.name}" %></h3>
+			<hr />
+		</div>
+
+		<% r.associations.list.each do |a| %>
+			<div class="row">
+				<%= "#{a.amount} #{a.ingredient.name}" %>
+			</div>
+		<% end %>
 	<% end %>
 </div>

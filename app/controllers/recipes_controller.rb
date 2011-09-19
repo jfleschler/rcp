@@ -50,10 +50,13 @@ class RecipesController < ApplicationController
   def create
 	  @recipe = current_user.recipes.new(params[:recipe])
     @recipe.name = @recipe.name.downcase
+    @recipe.cook_time = ""
+    @recipe.cook_temp = ""
+    @recipe.temp_unit = ""
 
 	  if @recipe.save
       @recipe.reload
-	    flash[:notice] = "recipe created!"
+	    #flash[:notice] = "recipe created!"
 	    redirect_to edit_recipe_path(@recipe)
 	  else
 	    render :action => 'new'
@@ -92,7 +95,7 @@ class RecipesController < ApplicationController
     @user = User.find_by_id(params[:user_id])
     @recipe = @user.recipes.find(params[:id])
 
-    ingredient = Ingredient.create({:name => @recipe.name, :image => @recipe.image, :tag_name => "multi-recipe", :user_id => @user.id})
+    ingredient = Ingredient.create({:name => @recipe.name, :image => @recipe.image, :tag_name => "multi-recipe", :user_id => @user.id, :recipe_id => @recipe.id})
     ingredient.reload
     @recipe.has_ingredient = ingredient.id
     @recipe.build_tag_list

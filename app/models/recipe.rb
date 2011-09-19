@@ -47,4 +47,14 @@ class Recipe < ActiveRecord::Base
 			i.destroy
 		end
 	end
+
+	def recipes_as_ingredients
+		r_as_i = []
+		associations.each do |a|
+			unless a.ingredient.recipe_id.nil?
+				r_as_i << Recipe.find_by_id(a.ingredient.recipe_id)
+			end
+		end
+		return r_as_i
+	end
 end
