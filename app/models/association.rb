@@ -11,8 +11,6 @@ class Association < ActiveRecord::Base
 		Ingredient.find(ingredient_id)
 	end
 
-	
-
 	private
 
 		def renumber_remaining
