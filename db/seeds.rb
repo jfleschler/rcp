@@ -14,7 +14,7 @@ ingredients = [
 	{:name => "egg",				:image => "ingredients/egg.png",		:tag_name => ""},
 	{:name => "egg white",			:image => "placeholder.png",			:tag_name => ""},
 	{:name => "vanilla extract",	:image => "placeholder.png",			:tag_name => ""},
-	{:name => "all-purpose flour",	:image => "placeholder.png",			:tag_name => ""},
+	{:name => "all-purpose flour",	:image => "ingredients/flour.png",			:tag_name => ""},
 	{:name => "salt",				:image => "placeholder.png",			:tag_name => ""},
 	{:name => "baking powder",		:image => "placeholder.png",			:tag_name => ""},
 	{:name => "baking soda",		:image => "placeholder.png",			:tag_name => ""},
@@ -22,7 +22,7 @@ ingredients = [
 	{:name => "cinnamon",			:image => "placeholder.png",			:tag_name => "cinnamon"},
 	{:name => "milk",				:image => "placeholder.png",			:tag_name => ""},
 	{:name => "raisins",			:image => "placeholder.png",			:tag_name => "raisins"},
-	{:name => "cake flour",			:image => "placeholder.png",			:tag_name => ""},
+	{:name => "cake flour",			:image => "ingredients/flour.png",			:tag_name => ""},
 	{:name => "strawberries",		:image => "placeholder.png",			:tag_name => ""}
 ].each do |i|
 	ingredient = Ingredient.find_or_create_by_name(i)
