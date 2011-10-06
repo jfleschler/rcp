@@ -13,7 +13,7 @@ ingredients = [
 	{:name => "light brown sugar",	:image => "placeholder.png",			:tag_name => ""},
 	{:name => "egg",				:image => "ingredients/egg.png",		:tag_name => ""},
 	{:name => "egg white",			:image => "placeholder.png",			:tag_name => ""},
-	{:name => "vanilla extract",	:image => "placeholder.png",			:tag_name => ""},
+	{:name => "vanilla extract",	:image => "ingredients/vanilla.png",	:tag_name => ""},
 	{:name => "all-purpose flour",	:image => "ingredients/flour.png",		:tag_name => ""},
 	{:name => "salt",				:image => "ingredients/salt.png",		:tag_name => ""},
 	{:name => "baking powder",		:image => "placeholder.png",			:tag_name => ""},
